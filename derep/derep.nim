@@ -5,11 +5,15 @@ import tables, strutils
 from os import fileExists
 
 const prog = "derep"
-const version = "0.4.0"
+const version = "0.5.0"
 #[
+  # v.0.5
+    - search for size=INT annotation also in comments IF not found in name
+
   # v.0.4
     - added multifile support
-    - added dna format function
+    - added dna format function (-w)
+    - compiler optimizations enabled
 
   # v.0.3
     - added "-c" to print size as comment rather than in sequence name
@@ -55,7 +59,7 @@ proc main(args: seq[string]) =
     var opts = p.parse(commandLineParams()) 
 
     let sizePattern = re";?size=(\d+);?";
-    let sizeCapture = re".*;size=(\d+);?.*"
+    let sizeCapture = re".*;?size=(\d+);?.*"
 
     var size_separator = if opts.size_as_comment : " " 
                else: ";"
@@ -87,8 +91,11 @@ proc main(args: seq[string]) =
           if seqFreqs[r.seq] == 0:
             seqNames[r.seq] = seqname.replace(sizePattern, "")
 
-        if not opts.ignore_size and match(r.name, sizeCapture, match):
-          seqFreqs.inc(r.seq, parseInt(match[0]))
+        if not opts.ignore_size:
+          if match(r.name, sizeCapture, match):
+            seqFreqs.inc(r.seq, parseInt(match[0]))
+          elif match(r.comment, sizeCapture, match):
+            seqFreqs.inc(r.seq, parseInt(match[0]))
         else:
           seqFreqs.inc(r.seq)
     var n = 0
