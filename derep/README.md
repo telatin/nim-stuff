@@ -9,7 +9,7 @@ derep
 Dereplicate FASTA (and FASTQ) files, print dereplicated sorted by cluster size with ';size=NNN' decoration.
 
 Usage:
-  derep [options] inputfile
+  derep [options] FILE1 FILE2 ... FILEn
 
 Arguments:
   inputfile        FASTX file (gzip supported)
@@ -23,6 +23,11 @@ Options:
   -w, --line-width=INT       Specify length of FASTA line (default: 0, meaning unlimited)
   -h, --help                 Show this help
 ```
+
+### Input
+
+A set of FASTA or FASTQ files. If the sequence name contains the `size=INT` flag, it will be counted.
+Example: [test.fasta](test.fa)
 
 
 ### Benchmark
