@@ -33,3 +33,5 @@ Compared with a similar Perl script:
 |:---|---:|---:|---:|---:|
 | `./bin/derep filt.fa filt.fa` | 2.908 ± 0.098 | 2.797 | 3.065 | 1.00 |
 | `perl uniq.pl	 filt.fa filt.fa` | 23.694 ± 0.339 | 23.283 | 24.187 | 8.15 ± 0.30 |
+
+![benchmark plot](examples/bench.png)
