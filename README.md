@@ -1,2 +1,3 @@
 # nim-stuff
-Exploring NIM
+
+Exploring NIM for bioinformatics
