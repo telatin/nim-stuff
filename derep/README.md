@@ -19,4 +19,6 @@ Options:
   -p, --prefix=PREFIX        Sequence prefix (default: seq)
   -s, --separator=SEPARATOR  Sequence separator (default: .)
   -h, --help                 Show this help
-``
+```
+
+
