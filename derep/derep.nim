@@ -5,11 +5,13 @@ import tables, strutils
 from os import fileExists
 
 const prog = "derep"
-const version = "0.3"
+const version = "0.3.1"
 #[
   # v.0.3
     - added "-c" to print size as comment rather than in sequence name
     - added "-m" to print sequences if their cluster size is >= INT
+    - 0.3.1: printing number of skipped sequences
+
   # v.0.2
     - Added "-k" to keep sequence names (first found as cluster name)
     - Added "-i" to ignore counts (default behaviour is to use it)
@@ -83,6 +85,8 @@ proc main() =
         name = opts.prefix & opts.separator & $(n)
 
       if clusterSize < parseInt(opts.min_size):
+        let  missing = seqFreqs.len - (n - 1)
+        stderr.writeLine("Skipped ", missing, " clusters having less than " , opt.min_size ," sequences.")
         quit(0)
       name.add(size_separator & "size=" & $(clusterSize) )
       echo ">", name,  "\n", repSeq;
