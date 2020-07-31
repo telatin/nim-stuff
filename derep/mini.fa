@@ -1,6 +1,8 @@
->FOUR_A_1
-aaaa
->FOUR_A_2
-aaaa
->UNIQ_4C
-cccc
+>10_A_1
+Aaaaaaaaaa
+>10_A_2
+Aaaaaaaaaa
+>UNIQ_10C
+Cccccccccc
+>Num
+1234567890
