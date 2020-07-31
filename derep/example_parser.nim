@@ -28,9 +28,9 @@ proc main() =
     while f.readFastx(r):
       n += 1
       echo "#", opts.prefix, opts.separator, n
-      echo r.name
-      echo r.seq
-      echo r.qual
+      echo "name\t", r.name, " [", r.comment, "]"
+      echo "seq\t", r.seq
+      echo "qual\t", r.qual
 
   except:
     echo p.help
