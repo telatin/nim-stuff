@@ -2,7 +2,12 @@
 
 Exploring NIM for bioinformatics
 
-Great repositories:
+## External resources:
+
+#### Bioinformatics
  * [hts-nim-tools](https://github.com/brentp/hts-nim-tools), for BAM/CRAM processing (Brent Pedersen)
  * [biofast](https://github.com/lh3/biofast/), for BED and FASTA parsing (Heng Li) 
- * [nim bioseq](https://github.com/jhbadger/nimbioseq)
+ * [sequences (nimbioseq)](https://github.com/jhbadger/nimbioseq)
+
+#### Data analysis
+ * [NimData (dataframes)](https://github.com/bluenote10/NimData)
