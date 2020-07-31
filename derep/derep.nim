@@ -8,6 +8,7 @@ const prog = "derep"
 const version = "0.3"
 #[
   # v.0.3
+    - added "-c" to print size as comment rather than in sequence name
     - added "-m" to print sequences if their cluster size is >= INT
   # v.0.2
     - Added "-k" to keep sequence names (first found as cluster name)
@@ -25,6 +26,7 @@ var p = newParser(prog):
   option("-m", "--min-size", help="Print clusters with size equal or bigger than INT sequences", default="0")
   option("-p", "--prefix", help = "Sequence name prefix", default = "seq")
   option("-s", "--separator", help = "Sequence name separator", default = ".")
+  flag("-c", "--size-as-comment", help="Print cluster size as comment, not in sequence name")
   arg("inputfile", help="FASTX file (gzip supported)")
 
 
@@ -36,10 +38,13 @@ proc main() =
 
     let sizePattern = re";?size=(\d+);?";
     let sizeCapture = re".*;size=(\d+);?.*"
+
+    var size_separator = if opts.size_as_comment : " " 
+               else: ";"
     var seqFreqs = initCountTable[string]()
     var seqNames = initTable[string, string]()
     
-
+    
     if opts.inputfile == "":
       echo "\nMissing arguments."
       quit(0)
@@ -79,7 +84,7 @@ proc main() =
 
       if clusterSize < parseInt(opts.min_size):
         quit(0)
-      name.add(";size=" & $(clusterSize) )
+      name.add(size_separator & "size=" & $(clusterSize) )
       echo ">", name,  "\n", repSeq;
   except:
     echo p.help
