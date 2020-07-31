@@ -7,7 +7,8 @@ from os import fileExists
 const prog = "derep"
 const version = "0.3"
 #[
-  
+  # v.0.3
+    - added "-m" to print sequences if their cluster size is >= INT
   # v.0.2
     - Added "-k" to keep sequence names (first found as cluster name)
     - Added "-i" to ignore counts (default behaviour is to use it)
@@ -21,6 +22,7 @@ var p = newParser(prog):
   help("Dereplicate FASTA (and FASTQ) files, print dereplicated sorted by cluster size with ';size=NNN' decoration.")
   flag("-k", "--keep-name", help="Do not rename sequence, but use the first sequence name")
   flag("-i", "--ignore-size", help="Do not count 'size=INT;' annotations (they will be stripped in any case)")
+  option("-m", "--min-size", help="Print clusters with size equal or bigger than INT sequences", default="0")
   option("-p", "--prefix", help = "Sequence name prefix", default = "seq")
   option("-s", "--separator", help = "Sequence name separator", default = ".")
   arg("inputfile", help="FASTX file (gzip supported)")
@@ -46,13 +48,6 @@ proc main() =
       echo "FATAL ERROR: File ", opts.inputfile, " not found."
       quit(1)
 
-    #[
-    if opts.ignore_size:
-      stderr.writeLine(" - Ignoring size")
-
-    if opts.keep_name:
-      stderr.writeLine(" - Keeping first sequence name")
-    ]#
     var f = xopen[GzFile](opts.inputfile)
     defer: f.close()
     var r: FastxRecord
@@ -72,19 +67,20 @@ proc main() =
         seqFreqs.inc(r.seq)
     
     seqFreqs.sort()
-    for key, val in seqFreqs:
+    for repSeq, clusterSize in seqFreqs:
       n += 1
-      var name: string
 
       # Generate name
+      var name: string
       if opts.keep_name:
-        name = seqNames[key]
+        name = seqNames[repSeq]
       else:
         name = opts.prefix & opts.separator & $(n)
 
-      name.add(";size=" & $(val) )
-
-      echo ">", name,  "\n", key;
+      if clusterSize < parseInt(opts.min_size):
+        quit(0)
+      name.add(";size=" & $(clusterSize) )
+      echo ">", name,  "\n", repSeq;
   except:
     echo p.help
     quit(0)
