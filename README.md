@@ -1,6 +1,7 @@
 # nim-stuff
 
-Exploring NIM for bioinformatics
+Exploring NIM for bioinformatics:
+ * [Dereplicate sequences](https://github.com/telatin/nim-stuff/tree/master/derep)
 
 ## External resources:
 
