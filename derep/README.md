@@ -20,7 +20,16 @@ Options:
   -m, --min-size=MIN_SIZE    Print clusters with size equal or bigger than INT sequences (default: 0)
   -p, --prefix=PREFIX        Sequence name prefix (default: seq)
   -s, --separator=SEPARATOR  Sequence name separator (default: .)
+  -w, --line-width=INT       Specify length of FASTA line (default: 0, meaning unlimited)
   -h, --help                 Show this help
 ```
 
 
+### Benchmark
+ 
+Compared with a similar Perl script:
+
+| Command | Mean [s] | Min [s] | Max [s] | Relative |
+|:---|---:|---:|---:|---:|
+| `./derep filt.fa filt.fa` | 6.626 ± 0.322 | 6.312 | 7.208 | 1.00 |
+| `./uniq.pl filt.fa filt.fa` | 25.588 ± 0.708 | 24.634 | 26.689 | 3.86 ± 0.22 |
