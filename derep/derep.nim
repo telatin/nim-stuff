@@ -69,7 +69,9 @@ proc main(args: seq[string]) =
 
     
     if opts.inputfile.len() == 0:
-      echo "\nMissing arguments."
+      echo "Missing arguments."
+      if not opts.help:
+        echo "Type --help for more info."
       quit(0)
     
     for filename in opts.inputfile:
