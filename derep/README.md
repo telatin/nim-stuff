@@ -31,5 +31,5 @@ Compared with a similar Perl script:
 
 | Command | Mean [s] | Min [s] | Max [s] | Relative |
 |:---|---:|---:|---:|---:|
-| `./derep filt.fa filt.fa` | 6.626 ± 0.322 | 6.312 | 7.208 | 1.00 |
-| `./uniq.pl filt.fa filt.fa` | 25.588 ± 0.708 | 24.634 | 26.689 | 3.86 ± 0.22 |
+| `./bin/derep filt.fa filt.fa` | 2.908 ± 0.098 | 2.797 | 3.065 | 1.00 |
+| `perl uniq.pl	 filt.fa filt.fa` | 23.694 ± 0.339 | 23.283 | 24.187 | 8.15 ± 0.30 |
