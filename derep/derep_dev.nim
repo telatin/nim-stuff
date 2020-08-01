@@ -29,11 +29,6 @@ const version = "0.5.0"
 
 ]#
 
-proc verbose(msg: string, print: bool) =
-  if print:
-    stderr.writeLine(" * ", msg)
-
-
 proc format_dna(seq: string, format_width: int): string =
   if format_width == 0:
     return seq
@@ -49,14 +44,13 @@ var p = newParser(prog):
   help("Dereplicate FASTA (and FASTQ) files, print dereplicated sorted by cluster size with ';size=NNN' decoration.")
   flag("-k", "--keep-name", help="Do not rename sequence, but use the first sequence name")
   flag("-i", "--ignore-size", help="Do not count 'size=INT;' annotations (they will be stripped in any case)")
-  flag("-v", "--verbose", help="Print verbose messages")
   option("-m", "--min-size", help="Print clusters with size equal or bigger than INT sequences", default="0")
   option("-p", "--prefix", help = "Sequence name prefix", default = "seq")
   option("-s", "--separator", help = "Sequence name separator", default = ".")
   option("-w", "--line-width", help = "FASTA line width (0: unlimited)", default = "0")
   option("-l", "--min-length", help = "Discard sequences shorter than MIN_LEN", default = "0")
   option("-x", "--max-length", help = "Discard sequences longer than MAX_LEN", default = "0")
-
+  
   flag("-c", "--size-as-comment", help="Print cluster size as comment, not in sequence name")
   arg("inputfile",  nargs = -1)
  
@@ -75,7 +69,7 @@ proc main(args: seq[string]) =
     var seqFreqs = initCountTable[string]()
     var seqNames = initTable[string, string]()
     
-    verbose("Starting derep v." & version, opts.verbose)
+
     
     if opts.inputfile.len() == 0:
       echo "Missing arguments."
@@ -83,7 +77,8 @@ proc main(args: seq[string]) =
         echo "Type --help for more info."
       quit(0)
     
-    for filename in opts.inputfile:      
+    for filename in opts.inputfile:
+      
       if not existsFile(filename):
         echo "FATAL ERROR: File ", filename, " not found."
         quit(1)
@@ -91,39 +86,28 @@ proc main(args: seq[string]) =
       var f = xopen[GzFile](filename)
       defer: f.close()
       var r: FastxRecord
-      verbose("Reading " & filename, opts.verbose)
+      
 
       # Prse FASTX
       var match: array[1, string]
-      var c = 0
-
       while f.readFastx(r):
-        c+=1
-
-        if opts.min_length != "0" and len(r.seq) < parseInt(opts.min_length):
-          continue
-        if opts.max_length != "0" and len(r.seq) > parseInt(opts.max_length):
-          continue
-        
         if opts.keep_name:
           var seqname = r.name
           if seqFreqs[r.seq] == 0:
             seqNames[r.seq] = seqname.replace(sizePattern, "")
+
         if not opts.ignore_size:
           if match(r.name, sizeCapture, match):
             seqFreqs.inc(r.seq, parseInt(match[0]))
           elif match(r.comment, sizeCapture, match):
             seqFreqs.inc(r.seq, parseInt(match[0]))
-          else:
-            seqFreqs.inc(r.seq)
         else:
           seqFreqs.inc(r.seq)
-      verbose("\tParsed " & $(c) & " sequences", opts.verbose)
     var n = 0
     seqFreqs.sort()
-
     for repSeq, clusterSize in seqFreqs:
       n += 1
+
       # Generate name
       var name: string
       if opts.keep_name:
