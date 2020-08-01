@@ -11,21 +11,27 @@ nim c -w:on  --opt:speed -d:release -p:$DIR/../lib $DIR/derep.nim || { echo "Com
 
 mv derep bin/derep_$(uname)
 
+
+# SOME TEST
+if [[ $(./bin/derep_$(uname) input/test.fa  | grep -c '>') -eq 5 ]]; then
+  echo " *** OK PASS"
+else
+  echo " --- Test failed"
+fi
 hyperfine --version || exit
-perl $DIR/test/fu-uniq --version || exit
+perl $DIR/test/uniq.pl --version || exit
 
 set -x pipefail
 cd $DIR
-hyperfine --export-markdown "$DIR/doc/bench.md" --max-runs 5 --warmup 2 \
+hyperfine --export-markdown "$DIR/doc/bench.md" --min-runs 15 --warmup 2 \
     "./bin/derep_$(uname) ./input/*.fa*" \
-    "perl ./test/fu-uniq ./input/*.fa*"
+    "perl ./test/uniq.pl ./input/*.fa*"
 
 sed -i 's/..bin.//'  "$DIR/doc/bench.md"
 sed -i 's/..test.//'  "$DIR/doc/bench.md"
 
 VERSION=$(grep const\ version derep.nim | grep -o \\d\[^\"\]\\+)
 BENCH=$(cat $DIR/doc/bench.md)
-
 
 perl -e '
   $BENCH=`cat doc/bench.md`;
@@ -43,3 +49,5 @@ perl -e '
    print;
   }
 ' "$VERSION" "$DIR/bin/derep_$(uname)" "README.raw" > README.md
+
+cd $OLDWD

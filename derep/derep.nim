@@ -5,8 +5,12 @@ import tables, strutils
 from os import fileExists
 
 const prog = "derep"
-const version = "0.5.0"
+const version = "0.6.0"
 #[
+  # v.0.6
+    - bug fixes
+    - size selection
+    
   # v.0.5
     - search for size=INT annotation also in comments IF not found in name
 

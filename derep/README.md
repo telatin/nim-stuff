@@ -1,6 +1,7 @@
 # FASTA/FASTQ Dereplication
 
-* derep 0.5.0
+![Commit](https://img.shields.io/github/last-commit/telatin/nim-stuff)
+![Version ](https://img.shields.io/badge/version--blue)
 
 Dereplicate sequence files, supporting gzipped input files. 
 If sequence names contains the `;size=INT` string, it will be used in the count (see example input)
@@ -38,7 +39,7 @@ Missing arguments.
 ### Input
 
 A set of FASTA or FASTQ files. If the sequence name contains the `size=INT` flag, it will be counted.
-Example: [test.fasta](test.fa)
+Example: [test.fasta](input/test.fa)
 
 
 ### Benchmark
@@ -47,8 +48,8 @@ Compared with a similar Perl script:
 
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `derep_Darwin ./input/*.fa*` | 112.8 ± 2.1 | 110.5 | 115.5 | 1.00 |
-| `perl fu-uniq ./input/*.fa*` | 912.6 ± 31.6 | 877.2 | 962.9 | 8.09 ± 0.32 |
+| `derep_Darwin ./input/*.fa*` | 118.3 ± 5.8 | 112.6 | 133.9 | 1.00 |
+| `perl uniq.pl ./input/*.fa*` | 922.2 ± 25.5 | 887.7 | 969.0 | 7.80 ± 0.44 |
 
 
-![benchmark plot](examples/bench_small.png)
+![benchmark plot](doc/bench_small.png)

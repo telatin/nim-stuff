@@ -1,6 +1,7 @@
 # FASTA/FASTQ Dereplication
 
-* derep {{ VERSION }}
+![Commit](https://img.shields.io/github/last-commit/telatin/nim-stuff)
+![Version {{ version }}](https://img.shields.io/badge/version-{{ version }}-blue)
 
 Dereplicate sequence files, supporting gzipped input files. 
 If sequence names contains the `;size=INT` string, it will be used in the count (see example input)
@@ -12,7 +13,7 @@ If sequence names contains the `;size=INT` string, it will be used in the count 
 ### Input
 
 A set of FASTA or FASTQ files. If the sequence name contains the `size=INT` flag, it will be counted.
-Example: [test.fasta](test.fa)
+Example: [test.fasta](input/test.fa)
 
 
 ### Benchmark
@@ -21,4 +22,4 @@ Compared with a similar Perl script:
 
 {{ BENCH }}
 
-![benchmark plot](examples/bench_small.png)
+![benchmark plot](doc/bench_small.png)
