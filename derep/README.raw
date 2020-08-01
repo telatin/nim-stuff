@@ -1,0 +1,24 @@
+# FASTA/FASTQ Dereplication
+
+* derep {{ VERSION }}
+
+Dereplicate sequence files, supporting gzipped input files. 
+If sequence names contains the `;size=INT` string, it will be used in the count (see example input)
+
+```
+{{ SPLASH }}
+```
+
+### Input
+
+A set of FASTA or FASTQ files. If the sequence name contains the `size=INT` flag, it will be counted.
+Example: [test.fasta](test.fa)
+
+
+### Benchmark
+ 
+Compared with a similar Perl script:
+
+{{ BENCH }}
+
+![benchmark plot](examples/bench_small.png)
