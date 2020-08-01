@@ -23,10 +23,15 @@ perl $DIR/test/uniq.pl --version || exit
 
 set -x pipefail
 cd $DIR
-hyperfine --export-markdown "$DIR/doc/bench.md" --min-runs 15 --warmup 2 \
-    "./bin/derep_$(uname) ./input/*.fa*" \
-    "perl ./test/uniq.pl ./input/*.fa*"
+hyperfine --export-markdown "$DIR/doc/bench.md" --min-runs 20 --warmup 2 \
+    "perl ./test/uniq.pl ./input/*.fa*"  \
+    "./bin/derep_$(uname) ./input/*.fa*" 
 
+hyperfine --export-markdown "$DIR/doc/single_file.md" --min-runs 24 --warmup 2 \
+    "vsearch --derep_fulllength ./input/filt.fa.gz --output /tmp/vsearch.fa" \
+    "./bin/derep_$(uname) ./input/filt.fa.gz > /tmp/derep.fa" \
+    "perl ./test/uniq.pl ./input/filt.fa.gz > /tmp/uniq.fa " 
+    
 sed -i 's/..bin.//'  "$DIR/doc/bench.md"
 sed -i 's/..test.//'  "$DIR/doc/bench.md"
 
