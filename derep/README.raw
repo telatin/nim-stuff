@@ -21,5 +21,4 @@ Example: [test.fasta](input/test.fa)
 Compared with a similar Perl script:
 
 {{ BENCH }}
-
-![benchmark plot](doc/bench_small.png)
+ 
