@@ -12,3 +12,8 @@ Exploring NIM for bioinformatics:
 
 #### Data analysis
  * [NimData (dataframes)](https://github.com/bluenote10/NimData)
+ 
+#### Option parsing
+ * [parseopt](https://nim-lang.org/docs/parseopt.html) - the vanilla parser in the standard library
+ * [argparse](https://www.iffycan.com/nim-argparse/argparse.html) - `argparse`-style parser, probably not super mature
+ * [docopt](https://github.com/docopt/docopt.nim#readme) - [docopt](https://www.docopt.org)-style parser, I find it useful
