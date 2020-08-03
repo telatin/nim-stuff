@@ -3,7 +3,7 @@ import re
 import tables, strutils
 from os import fileExists
 import docopt
-import ./version
+import ./seqfu_utils
 
 
 

@@ -2,7 +2,7 @@ import os
 import re
 import docopt
 import klib
-import ./version
+import ./seqfu_utils
 
 
 proc fastq_deinterleave(argv: var seq[string]): int =

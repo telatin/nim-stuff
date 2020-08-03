@@ -8,22 +8,9 @@ import algorithm
 ]#
 import docopt
 import klib
-import ./version
+import ./seqfu_utils
  
  
-proc print_seq(record: FastxRecord, outputFile: File, stripComment: bool) =
-  var name = record.name
-  if not stripComment:
-    name.add(" " & record.comment)
-
-  if len(record.seq) != len(record.qual):
-    stderr.writeLine("Sequence <", record.name, ">: quality and sequence length mismatch.")
-    return 
-
-  if outputFile == nil:
-    echo "@", name, "\n", record.seq, "\n+\n", record.qual
-  else:
-    outputFile.writeLine("@", name, "\n", record.seq, "\n+\n", record.qual)
 
 proc fastq_interleave(argv: var seq[string]): int =
   let args = docopt("""
@@ -80,7 +67,7 @@ example:
             quit(1)
     else:
         # user defined patterns
-        if match(file_R1, re(pattern_R1) ):
+        if match(file_R1, re(".+" & pattern_R1 & ".+") ):
             file_R2 = file_R1.replace(re(pattern_R1), pattern_R2)
         else:
             echo "Unable to find pattern <", pattern_R1, "> in file <", file_R1, ">"

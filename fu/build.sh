@@ -7,12 +7,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 
 nim --version >/dev/null 2>&1       || { echo "nim compiler not found."; exit 1; }
-nim c -w:on  --opt:speed -d:release -p:$DIR/../lib -o:bin/sfu $DIR/sfu.nim || { echo "Compilation failed."; exit 1; }
+nim c -w:on  --opt:speed -d:release -p:$DIR/../lib -o:bin/seqfu_$(uname) $DIR/sfu.nim || { echo "Compilation failed."; exit 1; }
 
 bash $DIR/test/mini.sh
 
 
-VERSION=$(grep return version.nim | grep -o \\d\[^\"\]\\+)
+VERSION=$(grep return seqfu_utils.nim | grep -o \\d\[^\"\]\\+ | head -n 1)
 
 
 perl -e '
@@ -30,5 +30,5 @@ perl -e '
    }
    print;
   }
-' "$VERSION" "$DIR/bin/sfu" "README.raw" > README.md
+' "$VERSION" "$DIR/bin/seqfu_$(uname)" "README.raw" > README.md
 

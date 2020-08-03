@@ -6,7 +6,7 @@ import algorithm
 import docopt
 
 # Suite Version
-import ./version
+import ./seqfu_utils
 
 # Subprograms
 include ./fastq_interleave
@@ -27,10 +27,10 @@ var progs = {
 
 proc main() =
 
-  var helps = {"interleave [ilv]":  "interleave FASTQ pair ends",
-               "deinterleave [dei]": "deinterleave FASTQ",
-               "derep [der]": "dereplicate FASTA/FASTQ files",
-               "count [cnt]": "count FASTA/FASTQ reads, pair-end aware" 
+  var helps = {"interleave [ilv]"   :  "interleave FASTQ pair ends",
+               "deinterleave [dei]" : "deinterleave FASTQ",
+               "derep [der]"        : "dereplicate FASTA/FASTQ files",
+               "count [cnt]"        : "count FASTA/FASTQ reads, pair-end aware" 
                }.toTable
 
 
