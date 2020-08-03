@@ -1,7 +1,14 @@
 import klib
-proc version*(): string =
-  return "0.1.0"
 
+#[ Versions
+    - 0.1.0    Initial release
+    - 0.1.1    Added 'derep' to dereplicate
+    - 0.1.2    Added 'count' stub
+]#
+
+proc version*(): string =
+  return "0.1.2"
+  
 
 proc echoVerbose*(msg: string, print: bool) =
   if print:

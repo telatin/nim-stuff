@@ -15,7 +15,6 @@ include ./fastq_deinterleave
 include ./fastx_derep
 include ./fastx_count
 
-
 var progs = {
        "ilv": fastq_interleave,
        "interleave": fastq_interleave,
@@ -24,10 +23,8 @@ var progs = {
        "derep": fastx_derep,
        "der": fastx_derep,
        "cnt": fastx_count,
-       "count": fastx_count,
-
- 
- }.toTable
+       "count": fastx_count, 
+}.toTable
 
 proc main() =
 
@@ -45,11 +42,12 @@ proc main() =
       if a < b: return -1
       else: return 1
       )
-    echo format("\nSeqFU programs.\nversion: $#\n", version())
+    echo format("SeqFU programs.\nversion: $#\n", version())
 
     for k in hkeys:
       echo format("	• $1: $2", k & repeat(" ", 20 - len(k)), helps[k])
-    echo ""
+      #echo format("	• \e[01;33m$1\e[00m: $2", k & repeat(" ", 20 - len(k)), helps[k])
+    echo "\nAdd --help after each command to print usage"
   else:
     var p = args[0]; args.delete(0)
     quit(progs[p](args))
