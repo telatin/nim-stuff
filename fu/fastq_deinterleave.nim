@@ -4,11 +4,6 @@ import docopt
 import klib
 import ./version
 
-var
-  dei_check: bool
-  dei_verbose: bool
-  dei_strip: bool
-
 
 proc fastq_deinterleave(argv: var seq[string]): int =
   let args = docopt("""
@@ -44,20 +39,20 @@ example:
     output_1 = output_base & tag_R1
     output_2 = output_base & tag_R2
 
-  dei_check = args["--check"]
-  dei_strip = args["--strip-comments"]
-  dei_verbose = args["--verbose"]
+  check = args["--check"]
+  stripComments = args["--strip-comments"]
+  verbose = args["--verbose"]
     
 
   var 
     outStream1 = open(output_1, fmWrite)
     outStream2 = open(output_2, fmWrite)
       
-  if dei_verbose:
+  if verbose:
     stderr.writeLine("- file:\t", input_file)
     stderr.writeLine("- output1:\t", output_1)
     stderr.writeLine("- output2:\t", output_2)
-    stderr.writeLine("- stripcomm:\t", dei_strip)
+    stderr.writeLine("- stripcomm:\t", stripComments)
 
 
 
@@ -79,8 +74,8 @@ example:
         record1.name = prefix & $c
         record2.name = prefix & $c
     c += 1
-    print_seq(record1, outStream1, dei_strip)
-    print_seq(record2, outStream2, dei_strip)
+    print_seq(record1, outStream1, stripComments)
+    print_seq(record2, outStream2, stripComments)
 
 
 

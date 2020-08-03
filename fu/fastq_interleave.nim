@@ -10,11 +10,7 @@ import docopt
 import klib
 import ./version
  
-var
-  ilv_check: bool
-  ilv_verbose: bool
-  ilv_strip: bool
-
+ 
 proc print_seq(record: FastxRecord, outputFile: File, stripComment: bool) =
   var name = record.name
   if not stripComment:
@@ -63,13 +59,12 @@ example:
     output_file = $args["--output"]
     prefix      = $args["--prefix"]
 
-  ilv_check = args["--check"]
-  ilv_strip = args["--strip-comments"]
-  ilv_verbose = args["--verbose"]
+  check = args["--check"]
+  stripComments = args["--strip-comments"]
+  verbose = args["--verbose"]
     
   if args["<reverse-pair>"]:
     file_R2 = $args["<reverse-pair>"]
-
 
   if file_R2 == "":
     # autodetecting R2 file
@@ -96,7 +91,7 @@ example:
   if output_file != "nil":
       outFile = open(output_file, fmWrite)
       
-  if ilv_verbose:
+  if verbose:
     stderr.writeLine("- file1:\t", file_R1)
     stderr.writeLine("- file2:\t", file_R2)
     stderr.writeLine("- patterns:\t", pattern_R1,';',pattern_R2)
@@ -130,12 +125,12 @@ example:
     c += 1
     if not fq2.readFastx(R2):
       stderr.writeLine("File R2 ended prematurely after ", c, " sequences.")
-      if ilv_check:
+      if check:
         quit(1)
       else: 
         quit(0)
 
-    if ilv_check and R1.name != R2.name:
+    if check and R1.name != R2.name:
         echo "Sequence error [seq ", c, "], name mismatch"
         echo R1.name, " != ", R2.name
         quit(3)
@@ -143,18 +138,18 @@ example:
     if prefix != "nil":
         R1.name = prefix & $c
         R2.name = prefix & $c
-    print_seq(R1, outFile, ilv_strip)
-    print_seq(R2, outFile, ilv_strip)
+    print_seq(R1, outFile, stripComments)
+    print_seq(R2, outFile, stripComments)
 
 
   if fq2.readFastx(R2):
     stderr.writeLine("File R1 ended prematurely after ", c, " sequences.")
-    if ilv_check:
+    if check:
       quit(1)
     else: 
       quit(0)
 
-  if ilv_verbose:
+  if verbose:
     echo "printed ", c, " sequences from ", file_R1, " and ", file_R2
 
   if output_file != "nil":

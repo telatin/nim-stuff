@@ -13,6 +13,7 @@ import ./version
 include ./fastq_interleave
 include ./fastq_deinterleave
 include ./fastx_derep
+include ./fastx_count
 
 
 var progs = {
@@ -21,6 +22,9 @@ var progs = {
        "dei": fastq_deinterleave,
        "deinterleave": fastq_deinterleave,  
        "derep": fastx_derep,
+       "der": fastx_derep,
+       "cnt": fastx_count,
+       "count": fastx_count,
 
  
  }.toTable
@@ -29,7 +33,8 @@ proc main() =
 
   var helps = {"interleave [ilv]":  "interleave FASTQ pair ends",
                "deinterleave [dei]": "deinterleave FASTQ",
-               "derep": "dereplicate FASTA/FASTQ files",
+               "derep [der]": "dereplicate FASTA/FASTQ files",
+               "count [cnt]": "count FASTA/FASTQ reads, pair-end aware" 
                }.toTable
 
 
