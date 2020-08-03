@@ -17,3 +17,6 @@ Exploring NIM for bioinformatics:
  * [parseopt](https://nim-lang.org/docs/parseopt.html) - the vanilla parser in the standard library
  * [argparse](https://www.iffycan.com/nim-argparse/argparse.html) - `argparse`-style parser, probably not super mature
  * [docopt](https://github.com/docopt/docopt.nim#readme) - [docopt](https://www.docopt.org)-style parser, I find it useful
+
+#### Other
+ * [stats](https://github.com/treeform/statistics) - statistics (via @lf-araujo)
