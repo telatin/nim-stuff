@@ -8,6 +8,7 @@ proc echoVerbose*(msg: string, print: bool) =
     stderr.writeLine(" * ", msg)
 
 
+# Common variables for switches
 var
    verbose*:        bool    # verbose mode
    check*:          bool    # enable basic checks
