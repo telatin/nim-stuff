@@ -34,3 +34,5 @@ if [[ $(cat testtmp_* | wc -l) == $(cat $iInterleaved | gzip -d | wc -l ) ]]; th
 else
 	echo "ERR: Deinterleave"
 fi
+rm testtmp_*
+

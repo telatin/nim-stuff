@@ -1,6 +1,5 @@
 import klib
 import re
-import argparse
 import tables, strutils
 from os import fileExists
 import docopt

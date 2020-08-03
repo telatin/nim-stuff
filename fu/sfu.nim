@@ -4,7 +4,6 @@ import strutils
 import tables
 import algorithm
 import docopt
-import kexpr
 
 # Suite Version
 import ./version
