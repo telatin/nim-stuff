@@ -9,6 +9,8 @@ proc fastx_tail(argv: var seq[string]): int =
     let args = docopt("""
 Usage: view [options] [<inputfile> ...]
 
+NOT YET IMPLEMENTED 
+
 Options:
   -n, --num INT          Print the first INT sequences
   -v, --verbose          Verbose output

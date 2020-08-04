@@ -17,6 +17,7 @@ include ./fastx_view
 include ./fastx_head
 include ./fastx_tail
 include ./fastx_stats
+include ./fastx_sort
 
 
 var progs = {
@@ -25,6 +26,7 @@ var progs = {
        "der": fastx_derep,            "derep": fastx_derep,
        "cnt": fastx_count,            "count": fastx_count, 
        "st" : fastx_stats,            "stats": fastx_stats,
+       "srt": fastx_sort,             "sort" : fastx_sort,
        "view": fastx_view,
        "head": fastx_head,
        "tail": fastx_tail,
@@ -39,7 +41,8 @@ proc main() =
                "derep [der]"       : "dereplicate FASTA/FASTQ files",
                "count [cnt]"       : "count FASTA/FASTQ reads, pair-end aware",
                "merge [mrg]"       : "merge Illumina lanes",
-               "stats [st]"        : "statistics on sequence lengths"
+               "stats [st]"        : "statistics on sequence lengths",
+               "sort [srt]"        : "sort sequences by size (uniques)"
                }.toTable
     helps_last = {"view"           : "view sequences",
                   "head"           : "print first sequences",

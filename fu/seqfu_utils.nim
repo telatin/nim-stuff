@@ -1,6 +1,6 @@
 import klib
 
-import strutils
+import  strutils
 #[ Versions
 - 0.2.1   Added 'head'
 - 0.2.0   Improved 'count' with PE support

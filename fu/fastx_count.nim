@@ -28,7 +28,6 @@ Options:
 
     var 
       files    : seq[string]
-      seqCount = initCountTable[string]()
       abspath  = args["--abs-path"]
       basename = args["--basename"]
       unpaired = args["--unpair"]

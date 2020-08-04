@@ -1,12 +1,11 @@
 import klib
-import re
 import tables, strutils
 from os import fileExists
 import docopt
 import ./seqfu_utils
 
 proc fastx_view(argv: var seq[string]): int =
-    let args = docopt("""
+  let args = docopt("""
 Usage: view [options] [<inputfile> ...]
 
 Options:
@@ -23,7 +22,7 @@ Options:
 
   """, version=version(), argv=argv)
 
-    verbose = args["--verbose"]
+  verbose = args["--verbose"]
 
 
 

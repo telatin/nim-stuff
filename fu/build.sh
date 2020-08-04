@@ -35,5 +35,13 @@ perl -e '
    }
    print;
   }
+print "## Some functions\n";
+for my $function ('head', 'interleave', 'deinterleave', 'derep', 'stats', 'count') {
+  print "### seqfu $function\n\n```\n";
+  print `$BIN $function --help`;
+  print "````\n"
+}
+
 ' "$VERSION" "$DIR/bin/seqfu_$(uname)" "README.raw" > README.md
+
 

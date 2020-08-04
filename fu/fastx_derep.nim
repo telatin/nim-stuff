@@ -24,6 +24,7 @@ Options:
   -w, --line-width=LINE_WIDTH  FASTA line width (0: unlimited) [default: 0]
   -l, --min-length=MIN_LENGTH  Discard sequences shorter than MIN_LEN [default: 0]
   -x, --max-length=MAX_LENGTH  Discard sequences longer than MAX_LEN [default: 0]
+  --add-len                    Add length to sequence
   -c, --size-as-comment        Print cluster size as comment, not in sequence name
   -h, --help                   Show this help
 
@@ -32,8 +33,10 @@ Options:
 
   
 
-    let sizePattern = re";?size=(\d+);?";
-    let sizeCapture = re".*;?size=(\d+);?.*"
+    let 
+      sizePattern = re";?size=(\d+);?"
+      sizeCapture = re".*;?size=(\d+);?.*"
+      addLength = args["--add-len"]
 
     var size_separator = if args["--size-as-comment"] : " " 
                else: ";"
@@ -109,5 +112,8 @@ Options:
         stderr.writeLine("Skipped ", missing, " clusters having less than " , args["--min-size"] ," sequences.")
         quit(0)
       name.add(size_separator & "size=" & $(clusterSize) )
+
+      if addLength:
+        name.add(";len=" & $len(repSeq))
       echo ">", name,  "\n", format_dna(repSeq, parseInt($args["--line-width"]));
  
