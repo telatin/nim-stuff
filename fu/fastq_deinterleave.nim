@@ -74,8 +74,8 @@ example:
         record1.name = prefix & $c
         record2.name = prefix & $c
     c += 1
-    print_seq(record1, outStream1, stripComments)
-    print_seq(record2, outStream2, stripComments)
+    print_seq(record1, outStream1)
+    print_seq(record2, outStream2)
 
 
 

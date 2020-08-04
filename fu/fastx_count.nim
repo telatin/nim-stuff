@@ -17,10 +17,10 @@ Options:
   -a, --abs-path         Print absolute paths
   -b, --basename         Print only filenames
   -u, --unpair           Print separate records for paired end files
+  -f, --for-tag R1       Forward tag [default: auto]
+  -r, --rev-tag R2       Reverse tag [default: auto]
   -v, --verbose          Verbose output
   -h, --help             Show this help
-  -f, --for-tag R1       Forward tag [default: auto]
-  -f, --rev-tag R2       Reverse tag [default: auto]
 
   """, version=version(), argv=argv)
 

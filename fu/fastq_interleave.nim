@@ -46,6 +46,7 @@ example:
     output_file = $args["--output"]
     prefix      = $args["--prefix"]
 
+  # Common settings
   check = args["--check"]
   stripComments = args["--strip-comments"]
   verbose = args["--verbose"]
@@ -125,8 +126,8 @@ example:
     if prefix != "nil":
         R1.name = prefix & $c
         R2.name = prefix & $c
-    print_seq(R1, outFile, stripComments)
-    print_seq(R2, outFile, stripComments)
+    print_seq(R1, outFile)
+    print_seq(R2, outFile)
 
 
   if fq2.readFastx(R2):
