@@ -40,7 +40,6 @@ proc parseChunk(chunk: string): Stats =
   var pageTitle = ""
   var countViews = 0
   var totalSize = 0
-  echo randomNum, " > ", chunk[0 .. 20]
   for line in splitLines(chunk):
     parse(line, domainCode, pageTitle, countViews, totalSize) 
     if domainCode == "en" and pageTitle != "Main_Page" and countViews > result.countViews:
