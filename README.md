@@ -11,6 +11,7 @@ Exploring NIM for bioinformatics:
 
 #### Bioinformatics
  * [hts-nim-tools](https://github.com/brentp/hts-nim-tools), for BAM/CRAM processing (Brent Pedersen)
+   * Brent is a pioneer in nim for bioinformatics so it's definitely worth [checking his GitHub page](https://github.com/search?q=user%3Abrentp+nim)
  * [biofast](https://github.com/lh3/biofast/), for BED and FASTA parsing (Heng Li) 
  * [sequences (nimbioseq)](https://github.com/jhbadger/nimbioseq)
 
