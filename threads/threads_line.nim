@@ -33,43 +33,39 @@ proc parse(line: string, domainCode, pageTitle: var string, countViews, totalSiz
   i.inc parseInt(line, totalSize, i)
 
 
-proc parseChunk(chunk: string): Stats = 
+proc parseChunk(batch: seq[string]): Stats = 
 
   result = newStats()
   var domainCode = ""
   var pageTitle = ""
   var countViews = 0
   var totalSize = 0
-  for line in splitLines(chunk):
-    parse(line, domainCode, pageTitle, countViews, totalSize) 
+
+  for i in batch:
+    parse(i, domainCode, pageTitle, countViews, totalSize) 
     if domainCode == "en" and pageTitle != "Main_Page" and countViews > result.countViews:
       result = Stats(domainCode: domainCode, pageTitle: pageTitle, countViews: countViews, totalSize: totalSize)
 
 #he readPageCounts procedure now includes a chunkSize parameter with a default value of 1_000_000. The underscores help readability and are ignored by Nim.
-proc readPageCounts(filename: string, chunkSize = 1_000_000) = 
+proc readPageCounts(filename: string, lines = 1000) = 
   var file = open(filename)
   # Defines a new responses sequence to hold the FlowVar 
   # objects that will be returned by spawn
   var responses = newSeq[FlowVar[Stats]]()
-  # Defines a new buffer string of length equal to chunkSize. 
-  # Fragments will be stored here
-  var buffer = newString(chunkSize)
-  # Defines a variable to store the length of the last buffer that wasn’t parsed
-  var oldBufferLen = 0 
- 
-  while not endOfFile(file):
-    # Calculates the number of characters that need to be read
-    let reqSize = chunksize - oldBufferLen
-    let readSize = file.readChars(buffer, oldBufferLen, reqSize) + oldBufferLen 
-    var chunkLen = readSize
-    while chunkLen >= 0 and buffer[chunkLen - 1] notin NewLines: 
-      chunkLen.dec
-    #Creates a new thread to execute the parseChunk procedure and passes a slice of the buffer that contains a fragment that can be parsed. 
-    # Adds the FlowVar[string] returned by spawn to the list of responses.
-    responses.add(spawn parseChunk(buffer[0 .. chunkLen-1])) 
-    oldBufferLen = readSize - chunkLen 
-    #Assigns the part of the fragment that wasn’t parsed to the beginning of buffer
-    buffer[0 .. oldBufferLen-1] = buffer[readSize - oldBufferLen .. ^1]
+
+  var c = 0
+  var batch =  newSeq[string](lines)
+  for line in file.lines():       
+    if c < 1000:
+      batch.add(line)
+      c += 1
+    else:
+      responses.add(spawn parseChunk(batch)) 
+      c = 0
+      batch.setLen(0)
+      batch.add(line)
+
+        
   var mostPopular = newStats()
   for resp in responses: # Iterates through each response
     #Blocks the main thread until the response can be read and then saves the response value in the statistics variable
