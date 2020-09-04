@@ -1,6 +1,6 @@
 # nim-stuff
 
-:cd: Exploring NIM for bioinformatics:
+Exploring NIM for bioinformatics:
  * [Dereplicate sequences](https://github.com/telatin/nim-stuff/tree/master/derep#readme) - dereplicate sequences with support for USEARCH style "size=INT;" annotations that will be taken into account.
  
 :book: My notes on **[Nim for Bioinformatics](https://andrea-telatin.gitbook.io/nim-bioinformatics/)**
