@@ -3,3 +3,4 @@ NimData
 bin/sfu
 testtmp*
 *.mac
+threads/input/
