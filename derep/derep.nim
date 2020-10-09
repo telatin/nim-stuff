@@ -52,7 +52,6 @@ proc format_dna(seq: string, format_width: int): string =
 var p = newParser(prog):
   help("Dereplicate FASTA (and FASTQ) files, print dereplicated sorted by cluster size with ';size=NNN' decoration.")
   flag("-k", "--keep-name", help="Do not rename sequence, but use the first sequence name")
-  flag("-i", "--ignore-size", help="Do not count 'size=INT;' annotations (they will be stripped in any case)")
   flag("-v", "--verbose", help="Print verbose messages")
   option("-m", "--min-size", help="Print clusters with size equal or bigger than INT sequences", default="0")
   option("-p", "--prefix", help = "Sequence name prefix", default = "seq")
@@ -70,15 +69,13 @@ proc main(args: seq[string]) =
 
   try:
     var opts = p.parse(commandLineParams()) 
-
-    let sizePattern = re";?size=(\d+);?";
-    let sizeCapture = re".*;?size=(\d+);?.*"
-
     var size_separator = if opts.size_as_comment : " " 
                else: ";"
     var seqFreqs = initCountTable[string]()
     var seqNames = initTable[string, string]()
-    
+    let sizePattern = re";?size=(\d+);?";
+    let sizeCapture = re".*;?size=(\d+);?.*"
+        
     verbose("Starting derep v." & version, opts.verbose)
     
     if opts.inputfile.len() == 0:
@@ -103,6 +100,8 @@ proc main(args: seq[string]) =
 
       while f.readFastx(r):
         c+=1
+        # Always consider uppercase sequences
+        r.seq = toUpperAscii(r.seq)
 
         if opts.min_length != "0" and len(r.seq) < parseInt(opts.min_length):
           continue
@@ -113,15 +112,8 @@ proc main(args: seq[string]) =
           var seqname = r.name
           if seqFreqs[r.seq] == 0:
             seqNames[r.seq] = seqname.replace(sizePattern, "")
-        if not opts.ignore_size:
-          if match(r.name, sizeCapture, match):
-            seqFreqs.inc(r.seq, parseInt(match[0]))
-          elif match(r.comment, sizeCapture, match):
-            seqFreqs.inc(r.seq, parseInt(match[0]))
-          else:
-            seqFreqs.inc(r.seq)
-        else:
-          seqFreqs.inc(r.seq)
+        
+        seqFreqs.inc(r.seq)
       verbose("\tParsed " & $(c) & " sequences", opts.verbose)
     var n = 0
     seqFreqs.sort()

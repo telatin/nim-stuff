@@ -1,0 +1,5 @@
+.DS_Store
+NimData
+bin/sfu
+testtmp*
+*.mac

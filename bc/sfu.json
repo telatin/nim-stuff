@@ -1,0 +1,846 @@
+{
+  "app_entry": {}, 
+  "conda_platforms": [
+    "noarch"
+  ], 
+  "full_name": "bioconda/seqfu", 
+  "owner": {
+    "description": "Bioconda is a distribution of bioinformatics software realized as a channel for the versatile Conda package manager.", 
+    "url": "", 
+    "company": "", 
+    "user_type": "org", 
+    "location": "", 
+    "login": "bioconda", 
+    "created_at": "2015-09-11 22:59:20.880000+00:00", 
+    "name": "bioconda"
+  }, 
+  "home": "http://github.com/quadram-institute-bioscience/seqfu/", 
+  "source_git_url": null, 
+  "source_git_tag": null, 
+  "app_type": {}, 
+  "upvoted": 0, 
+  "id": "5e70faa7778a87708c803537", 
+  "app_summary": {}, 
+  "public": true, 
+  "revision": 10, 
+  "files": [
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.1.0-pl526_0.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": []
+          }, 
+          {
+            "name": "n50", 
+            "specs": []
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 0, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq", 
+          "n50", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_0", 
+        "timestamp": 1584462330475, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.1.0/noarch/seqfu-0.1.0-pl526_0.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 14062, 
+      "upload_time": "2020-03-17 16:28:24.353000+00:00", 
+      "ndownloads": 23, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.1.0/noarch/seqfu-0.1.0-pl526_0.tar.bz2", 
+      "version": "0.1.0", 
+      "md5": "ffdd4f9673b4d260dd8b027e0b2561d1", 
+      "type": "conda"
+    }, 
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.2.0-pl526_0.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": []
+          }, 
+          {
+            "name": "n50", 
+            "specs": []
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 0, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq", 
+          "n50", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_0", 
+        "timestamp": 1586940398028, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.2.0/noarch/seqfu-0.2.0-pl526_0.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 46793, 
+      "upload_time": "2020-04-16 20:44:34.147000+00:00", 
+      "ndownloads": 23, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.2.0/noarch/seqfu-0.2.0-pl526_0.tar.bz2", 
+      "version": "0.2.0", 
+      "md5": "021ee3e91faee17a464e9d347bc746ff", 
+      "type": "conda"
+    }, 
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.2.0-pl526_1.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": [
+              [
+                ">=", 
+                "0.99"
+              ]
+            ]
+          }, 
+          {
+            "name": "n50", 
+            "specs": [
+              [
+                ">=", 
+                "1.3.0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": [
+              [
+                ">=", 
+                "0.88"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 1, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq >=0.99", 
+          "n50 >=1.3.0", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader >=0.88", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_1", 
+        "timestamp": 1587804958820, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.2.0/noarch/seqfu-0.2.0-pl526_1.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 46601, 
+      "upload_time": "2020-04-26 08:08:25.529000+00:00", 
+      "ndownloads": 38, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.2.0/noarch/seqfu-0.2.0-pl526_1.tar.bz2", 
+      "version": "0.2.0", 
+      "md5": "552997e8ac03e46b7bac9fe31594df7c", 
+      "type": "conda"
+    }, 
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.5.0-pl526_0.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": [
+              [
+                ">=", 
+                "0.99"
+              ]
+            ]
+          }, 
+          {
+            "name": "n50", 
+            "specs": [
+              [
+                ">=", 
+                "1.3.0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": [
+              [
+                ">=", 
+                "0.88"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 0, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq >=0.99", 
+          "n50 >=1.3.0", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader >=0.88", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_0", 
+        "timestamp": 1588785754715, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.5.0/noarch/seqfu-0.5.0-pl526_0.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 49152, 
+      "upload_time": "2020-05-06 17:39:02.785000+00:00", 
+      "ndownloads": 40, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.5.0/noarch/seqfu-0.5.0-pl526_0.tar.bz2", 
+      "version": "0.5.0", 
+      "md5": "d9444f6402e2e578452335e5f5bab994", 
+      "type": "conda"
+    }, 
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.5.1-pl526_0.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": [
+              [
+                ">=", 
+                "0.99"
+              ]
+            ]
+          }, 
+          {
+            "name": "n50", 
+            "specs": [
+              [
+                ">=", 
+                "1.3.0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": [
+              [
+                ">=", 
+                "0.88"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 0, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq >=0.99", 
+          "n50 >=1.3.0", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader >=0.88", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_0", 
+        "timestamp": 1591528636272, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.5.1/noarch/seqfu-0.5.1-pl526_0.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 49492, 
+      "upload_time": "2020-06-11 09:02:27.723000+00:00", 
+      "ndownloads": 19, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.5.1/noarch/seqfu-0.5.1-pl526_0.tar.bz2", 
+      "version": "0.5.1", 
+      "md5": "f7400ef48d99cf3d01c2cfef16f0a9bc", 
+      "type": "conda"
+    }, 
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.5.1-pl526_1.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": [
+              [
+                ">=", 
+                "0.99"
+              ]
+            ]
+          }, 
+          {
+            "name": "n50", 
+            "specs": [
+              [
+                ">=", 
+                "1.3.0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-biox-seq", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": [
+              [
+                ">=", 
+                "0.88"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 1, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq >=0.99", 
+          "n50 >=1.3.0", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-biox-seq", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader >=0.88", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_1", 
+        "timestamp": 1595691653061, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.5.1/noarch/seqfu-0.5.1-pl526_1.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 49567, 
+      "upload_time": "2020-07-27 10:25:57.951000+00:00", 
+      "ndownloads": 26, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.5.1/noarch/seqfu-0.5.1-pl526_1.tar.bz2", 
+      "version": "0.5.1", 
+      "md5": "05402be433e9538e2ff604b204d05ae5", 
+      "type": "conda"
+    }, 
+    {
+      "description": null, 
+      "basename": "noarch/seqfu-0.6.0-pl526_0.tar.bz2", 
+      "labels": [
+        "main"
+      ], 
+      "dependencies": {
+        "depends": [
+          {
+            "name": "interleafq", 
+            "specs": [
+              [
+                ">=", 
+                "0.99"
+              ]
+            ]
+          }, 
+          {
+            "name": "n50", 
+            "specs": [
+              [
+                ">=", 
+                "1.3.0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl", 
+            "specs": [
+              [
+                ">=", 
+                "5.26.2,<5.26.3.0a0"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-biox-seq", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-exporter", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-abi", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-fastx-reader", 
+            "specs": [
+              [
+                ">=", 
+                "0.88"
+              ]
+            ]
+          }, 
+          {
+            "name": "perl-file-which", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-getopt-long", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-json-pp", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-pod-usage", 
+            "specs": []
+          }, 
+          {
+            "name": "perl-text-asciitable", 
+            "specs": []
+          }
+        ]
+      }, 
+      "distribution_type": "conda", 
+      "attrs": {
+        "build_number": 0, 
+        "license": "mit", 
+        "has_prefix": false, 
+        "noarch": "generic", 
+        "machine": null, 
+        "platform": null, 
+        "depends": [
+          "interleafq >=0.99", 
+          "n50 >=1.3.0", 
+          "perl >=5.26.2,<5.26.3.0a0", 
+          "perl-biox-seq", 
+          "perl-exporter", 
+          "perl-fastx-abi", 
+          "perl-fastx-reader >=0.88", 
+          "perl-file-which", 
+          "perl-getopt-long", 
+          "perl-json-pp", 
+          "perl-pod-usage", 
+          "perl-text-asciitable"
+        ], 
+        "build": "pl526_0", 
+        "timestamp": 1595848238601, 
+        "arch": null, 
+        "operatingsystem": null, 
+        "target-triplet": "None-any-None", 
+        "subdir": "noarch"
+      }, 
+      "full_name": "bioconda/seqfu/0.6.0/noarch/seqfu-0.6.0-pl526_0.tar.bz2", 
+      "owner": "bioconda", 
+      "size": 51201, 
+      "upload_time": "2020-07-28 18:33:20.562000+00:00", 
+      "ndownloads": 7, 
+      "download_url": "//api.anaconda.org/download/bioconda/seqfu/0.6.0/noarch/seqfu-0.6.0-pl526_0.tar.bz2", 
+      "version": "0.6.0", 
+      "md5": "452bb3a0940822521195a817935ccf4b", 
+      "type": "conda"
+    }
+  ], 
+  "package_types": [
+    "conda"
+  ], 
+  "description": "A collection of utilities to work with FASTX (FASTA or FASTQ) files\nusing the FASTX::Reader module that accepts gzipped input.\n'n50' will calculate N50, minimum, maximum and total size of the\nsequences in one or more files, supporting CSV, TSV, JSON and screen\nfriendly output.\n'interleafq' allows to interleave or deinterleave paired-end sequences.\n", 
+  "releases": [
+    {
+      "version": "0.1.0", 
+      "distributions": [], 
+      "full_name": "bioconda/seqfu/0.1.0"
+    }, 
+    {
+      "version": "0.2.0", 
+      "distributions": [], 
+      "full_name": "bioconda/seqfu/0.2.0"
+    }, 
+    {
+      "version": "0.5.0", 
+      "distributions": [], 
+      "full_name": "bioconda/seqfu/0.5.0"
+    }, 
+    {
+      "version": "0.5.1", 
+      "distributions": [], 
+      "full_name": "bioconda/seqfu/0.5.1"
+    }, 
+    {
+      "version": "0.6.0", 
+      "distributions": [], 
+      "full_name": "bioconda/seqfu/0.6.0"
+    }
+  ], 
+  "html_url": "http://anaconda.org/bioconda/seqfu", 
+  "builds": [
+    "pl526_1", 
+    "pl526_0"
+  ], 
+  "watchers": 1, 
+  "dev_url": null, 
+  "name": "seqfu", 
+  "license": "mit", 
+  "versions": [
+    "0.1.0", 
+    "0.2.0", 
+    "0.5.0", 
+    "0.5.1", 
+    "0.6.0"
+  ], 
+  "url": "http://api.anaconda.org/packages/bioconda/seqfu", 
+  "created_at": "2020-03-17 16:28:23.222000+00:00", 
+  "modified_at": "2020-07-28 18:33:21.123000+00:00", 
+  "latest_version": "0.6.0", 
+  "summary": "DNA sequence utilities (N50, de/interleave FASTQ, grep etc.)", 
+  "license_url": null, 
+  "doc_url": null
+}

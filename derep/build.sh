@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 
 nim --version >/dev/null 2>&1       || { echo "nim compiler not found."; exit 1; }
-nim c -w:on  --opt:speed -d:release -p:$DIR/../lib $DIR/derep.nim || { echo "Compilation failed."; exit 1; }
+nim c -w:on --opt:speed -d:release -p:$DIR/../lib $DIR/derep.nim || { echo "Compilation failed."; exit 1; }
 
 mv derep bin/derep_$(uname)
 
@@ -21,6 +21,7 @@ fi
 hyperfine --version || exit
 perl $DIR/test/uniq.pl --version || exit
 
+exit; 
 set -x pipefail
 cd $DIR
 hyperfine --export-markdown "$DIR/doc/bench.md" --min-runs 20 --warmup 2 \
