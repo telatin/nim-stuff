@@ -1,0 +1,151 @@
+- STAGE: Read error correction
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: ec_start
+- STAGE: Read error correction
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/corrected/configs/config.info
+  config_dir: corrected
+  del_after:
+  - /Users/telatina/git/nim-stuff/orf/assembly/tmp/hammer_vxhi2hmb
+  output_files:
+  - /Users/telatina/git/nim-stuff/orf/assembly/corrected/corrected.yaml
+  path: /Users/telatina/miniconda3/bin/spades-hammer
+  short_name: ec_runtool
+- STAGE: corrected reads compression
+  args:
+  - /Users/telatina/miniconda3/share/spades/spades_pipeline/scripts/compress_all.py
+  - --input_file
+  - /Users/telatina/git/nim-stuff/orf/assembly/corrected/corrected.yaml
+  - --ext_python_modules_home
+  - /Users/telatina/miniconda3/share/spades
+  - --max_threads
+  - '16'
+  - --output_dir
+  - /Users/telatina/git/nim-stuff/orf/assembly/corrected
+  - --gzip_output
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/python
+  short_name: ec_compress
+- STAGE: Read error correction
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: ec_finish
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_start
+- STAGE: K21
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/K21/configs/config.info
+  config_dir: K21
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/spades-core
+  short_name: k21
+- STAGE: K33
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/K33/configs/config.info
+  config_dir: K33
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/spades-core
+  short_name: k33
+- STAGE: K55
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/K55/configs/config.info
+  config_dir: K55
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/spades-core
+  short_name: k55
+- STAGE: K77
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/K77/configs/config.info
+  config_dir: K77
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/spades-core
+  short_name: k77
+- STAGE: K99
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/K99/configs/config.info
+  config_dir: K99
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/spades-core
+  short_name: k99
+- STAGE: K127
+  args:
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/configs/config.info
+  config_dir: K127
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/spades-core
+  short_name: k127
+- STAGE: Copy files
+  args:
+  - /Users/telatina/miniconda3/share/spades/spades_pipeline/scripts/copy_files.py
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/before_rr.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/before_rr.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/final_contigs.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/contigs.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/first_pe_contigs.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/first_pe_contigs.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/scaffolds.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/scaffolds.fasta
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/scaffolds.paths
+  - /Users/telatina/git/nim-stuff/orf/assembly/scaffolds.paths
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/assembly_graph_with_scaffolds.gfa
+  - /Users/telatina/git/nim-stuff/orf/assembly/assembly_graph_with_scaffolds.gfa
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/assembly_graph.fastg
+  - /Users/telatina/git/nim-stuff/orf/assembly/assembly_graph.fastg
+  - /Users/telatina/git/nim-stuff/orf/assembly/K127/final_contigs.paths
+  - /Users/telatina/git/nim-stuff/orf/assembly/contigs.paths
+  config_dir: ''
+  del_after:
+  - /Users/telatina/git/nim-stuff/orf/assembly/.bin_reads
+  - /Users/telatina/git/nim-stuff/orf/assembly/tmp/spades_ac5t251n
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/python
+  short_name: copy_files
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: 'true'
+  short_name: as_finish
+- STAGE: Breaking scaffolds
+  args:
+  - /Users/telatina/miniconda3/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - --result_scaffolds_filename
+  - /Users/telatina/git/nim-stuff/orf/assembly/scaffolds.fasta
+  - --misc_dir
+  - /Users/telatina/git/nim-stuff/orf/assembly/misc
+  - --threshold_for_breaking_scaffolds
+  - '3'
+  config_dir: ''
+  del_after: []
+  output_files: []
+  path: /Users/telatina/miniconda3/bin/python
+  short_name: bs
+- STAGE: Terminate
+  args: []
+  config_dir: ''
+  del_after:
+  - /Users/telatina/git/nim-stuff/orf/assembly/configs
+  output_files: []
+  path: 'true'
+  short_name: terminate

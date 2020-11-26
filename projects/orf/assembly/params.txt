@@ -1,0 +1,37 @@
+Command line: /Users/telatina/miniconda3/bin/spades.py	-1	/Users/telatina/OneDrive - Norwich BioScience Institutes/Email attachments/7793_50_1_trimmed.fastq.gz	-2	/Users/telatina/OneDrive - Norwich BioScience Institutes/Email attachments/7793_50_2_trimmed.fastq.gz	-o	/Users/telatina/git/nim-stuff/orf/assembly	
+
+System information:
+  SPAdes version: 3.14.0
+  Python version: 3.7.4
+  OS: Darwin-19.6.0-x86_64-i386-64bit
+
+Output dir: /Users/telatina/git/nim-stuff/orf/assembly
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Standard mode
+  For multi-cell/isolate data we recommend to use '--isolate' option; for single-cell MDA data use '--sc'; for metagenomic data use '--meta'; for RNA-Seq use '--rna'.
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: ['/Users/telatina/OneDrive - Norwich BioScience Institutes/Email attachments/7793_50_1_trimmed.fastq.gz']
+      right reads: ['/Users/telatina/OneDrive - Norwich BioScience Institutes/Email attachments/7793_50_2_trimmed.fastq.gz']
+      interlaced reads: not specified
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will be compressed
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /Users/telatina/git/nim-stuff/orf/assembly/tmp
+  Threads: 16
+  Memory limit (in Gb): 250
+
