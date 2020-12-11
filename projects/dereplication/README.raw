@@ -1,0 +1,24 @@
+# FASTA/FASTQ Dereplication
+
+![Commit](https://img.shields.io/github/last-commit/telatin/nim-stuff)
+![Version {{ VERSION }}](https://img.shields.io/badge/version-{{ VERSION }}-blue)
+
+Dereplicate sequence files, supporting gzipped input files. 
+If sequence names contains the `;size=INT` string, it will be used in the count (see example input)
+
+```
+{{ SPLASH }}
+```
+
+### Input
+
+A set of FASTA or FASTQ files. If the sequence name contains the `size=INT` flag, it will be counted.
+Example: [test.fasta](input/test.fa)
+
+
+### Benchmark
+ 
+Compared with a similar Perl script:
+
+{{ BENCH }}
+ 

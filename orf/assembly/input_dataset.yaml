@@ -1,6 +1,0 @@
-- "left reads":
-  - "/Users/telatina/OneDrive - Norwich BioScience Institutes/Email attachments/7793_50_1_trimmed.fastq.gz"
-  "orientation": "fr"
-  "right reads":
-  - "/Users/telatina/OneDrive - Norwich BioScience Institutes/Email attachments/7793_50_2_trimmed.fastq.gz"
-  "type": "paired-end"

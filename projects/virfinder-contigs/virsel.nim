@@ -94,7 +94,7 @@ proc main(args: seq[string]) =
             vfTable[s.id].score   >= parseFloat($args["--min-score"]) and
             vfTable[s.id].pvalue  <= parseFloat($args["--max-pvalue"]):
             let annotation = if args["--annotate"]: " score=" & $vfTable[s.id].score & ";pvalue=" & $vfTable[s.id].pvalue
-                             else: ""
+                             else: "  "
             echo '>', s.id, annotation
             echo s.sequence
           else:
