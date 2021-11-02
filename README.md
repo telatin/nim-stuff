@@ -7,7 +7,7 @@ Exploring NIM for bioinformatics:
 
 ## Explorations
  * [threads example](https://github.com/telatin/nim-stuff/tree/master/threads#readme)
- * [FASTX dereplication](https://github.com/telatin/nim-stuff/tree/master/derep#readme)
+ * [FASTX dereplication](https://github.com/telatin/nim-stuff/tree/master/projects/dereplication#readme)
  
 ## External resources:
 
